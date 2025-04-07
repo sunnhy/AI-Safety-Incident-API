@@ -22,7 +22,7 @@ def get_all_incidents ():
     incidents = incidents_collection.find()
     return jsonify([format_incident(inc) for inc in incidents]), 2000
 
-@app.route("incidents", methods=["POST"])
+@app.route("/incidents", methods=["POST"])
 def create_incident():
     data = request.get_json()
 
@@ -39,7 +39,6 @@ def create_incident():
 
     result = incidents_collection.insert_one(incident)
     incident["_id"] = result.inserted_id
-
     return jsonify(format_incident(incident)), 201
 
 @app.route("/incidents/<string:incident_id>", methods=["GET"])
