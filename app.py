@@ -20,7 +20,7 @@ def format_incident(incident):
 @app.route("/incidents", methods=["GET"])
 def get_all_incidents ():
     incidents = incidents_collection.find()
-    return jsonify([format_incident(inc) for inc in incidents]), 2000
+    return jsonify([format_incident(inc) for inc in incidents]), 200
 
 @app.route("/incidents", methods=["POST"])
 def create_incident():
