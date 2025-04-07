@@ -61,7 +61,6 @@ def delete_incident(incident_id):
             return jsonify({"message": "Incident deleted succesfully"}), 200
         except:
             return jsonify({"error": "Invalid incident ID"}), 400
-        return '', 204
 
 if __name__== "__main__":
      app.run(debug=True)
